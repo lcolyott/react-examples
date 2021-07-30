@@ -50,6 +50,7 @@ const ReminderList: React.FunctionComponent<any> = (props) => {
         reminders: [],
     });
 
+    // Status will help control whether some subcomponents are functional
     const [status, setStatus] = React.useState<ListStatus>("Idle");
 
     useEffect(() => {
@@ -132,6 +133,10 @@ const ReminderList: React.FunctionComponent<any> = (props) => {
     };
 
     return (
+        /**
+         * ClickAwayListener is from Material-UI/core
+         * @see https://next.material-ui.com/components/click-away-listener/
+         */
         <ClickAwayListener onClickAway={() => {
             if (status === "Add") {
                 setStatus("Idle");

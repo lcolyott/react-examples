@@ -1,21 +1,18 @@
 import React from "react";
-import routes, { Route } from "./routes";
-
-interface RouteSwitchProps {
-    location?: string;
-    routes?: Route[];
-};
+import routes from "./routes";
+import { Route, RouteComponentProps, RouterProps, RouterState, RouteSwitchProps } from "./types";
+import { ViewProps } from "./views";
 
 const RouteSwitch = (props: RouteSwitchProps) => {
     const { location, routes } = props;
 
-    const renderRoute = (route: Route | undefined) => {
+    const renderRoute = (route?: Route) => {
         if (!route) { return };
 
-        let Component = route.component;
+        let Component = route.component as React.ElementType<RouteComponentProps<ViewProps>>;
 
         return (
-            <Component >
+            <Component {...route.componentProps}>
                 Location: {location}
             </Component>
         );
@@ -26,15 +23,6 @@ const RouteSwitch = (props: RouteSwitchProps) => {
             {renderRoute(routes?.find((route) => route.path === location))}
         </div>
     );
-};
-
-interface RouterProps {
-    basename?: string;
-    routes: Route[];
-};
-
-interface RouterState {
-    location?: string;
 };
 
 class HashRouter extends React.PureComponent<RouterProps, RouterState> {

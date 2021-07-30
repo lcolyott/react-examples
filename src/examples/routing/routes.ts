@@ -1,27 +1,39 @@
 import React from "react";
-import View from "./views";
+import { Route } from "./types";
+import View, { ViewProps } from "./views";
 
-export interface Route {
-    path: string;
-    component: React.ElementType<any>
-};
-
-const routes: Route[] = [
+const routes: Route<ViewProps>[] = [
     {
         path: "/",
-        component: View
+        component: View,
+        componentProps: {
+            viewName: "Index",
+            color: "chartreuse",
+        }
     },
     {
         path: "/1",
-        component: View
+        component: View,
+        componentProps: {
+            viewName: "Home",
+            color: "dodgerblue"
+        }
     },
     {
         path: "/2",
-        component: View
+        component: View,
+        componentProps: {
+            viewName: "Account",
+            color: "khaki"
+        }
     },
     {
         path: "/3",
-        component: View
+        component: View,
+        componentProps: {
+            viewName: "Settings",
+            color: "tomato"
+        }
     }
 ];
 
