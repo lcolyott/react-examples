@@ -1,0 +1,97 @@
+.Counter {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+}
+
+.Display-Container {
+    display: flex;
+    flex-basis: 500px;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.Display {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 80%;
+    height: 80%;
+
+    background-color: white;
+
+    border: 2rem solid grey;
+    border-radius: 100%;
+
+    & label {
+        position: absolute;
+
+        font-weight: bolder;
+        font-size: x-large;
+
+        &.VALUE {
+            bottom: 25%;
+        }
+        &.MIN {
+            left: 1rem;
+        }
+        &.ZERO {
+            top: 1rem;
+        }
+        &.MAX {
+            right: 1rem;
+        }
+    }
+}
+
+.Arrow-Container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 60%;
+    height: 60%;
+
+    transform: rotate(0);
+    transition: transform 1s cubic-bezier(.26,.31,.04,1.48);
+
+    & .Arrow {
+        position: absolute;
+
+        display: flex;
+        justify-content: center;
+
+        width: 0.5rem;
+
+        top: 0;
+        bottom: 50%;
+
+        background-color: black;
+
+        &:after {
+            content: "";
+            position: absolute;
+
+            width: 20px;
+            height: 20px;
+
+            background-color: black;
+
+            transform: rotate(45deg);
+        }
+    }
+
+    &:after {
+        content: "";
+        position: absolute;
+        width: 20px;
+        height: 20px;
+
+        background-color: black;
+        border-radius: 100%;
+    }
+}

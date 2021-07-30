@@ -1,0 +1,15 @@
+.ControlsRoot {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    & > div {
+        display: flex;
+        flex-direction: row;
+        gap: 0.25rem;
+    }
+}
+
+button {
+    flex-grow: 2;
+}

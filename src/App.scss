@@ -1,0 +1,40 @@
+.App {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    width: 100vw;
+    max-width: 100vw;
+
+    background-color: lightgrey;
+}
+
+.Solution {
+    position: relative;
+    display: flex; // Flex direction defaults to 'row'
+    align-items: center; // Requires a display of Flex
+    justify-content: center; // Requires a display of Flex
+    flex-wrap: wrap;
+    flex-direction: column;
+
+    height: 100vh;
+
+    border-right: 2px dashed grey;
+    border-bottom: 2px dashed grey;
+
+    & > h1 {
+        position: absolute;
+        top: 1rem;
+        left: 1rem;
+        margin: 0;
+    }
+}
+
+.Exercise {
+    display: flex; // Flex direction defaults to 'row'
+    align-items: center; // Requires a display of Flex
+    justify-content: center; // Requires a display of Flex
+    flex-wrap: wrap;
+    flex-direction: column;
+
+    border-bottom: 2px dashed grey;
+}

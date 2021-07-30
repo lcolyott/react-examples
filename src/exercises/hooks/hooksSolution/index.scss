@@ -1,0 +1,80 @@
+.Token {
+    z-index: 10;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 50px;
+    height: 50px;
+
+    border: 1px dashed grey;
+    border-radius: 100%;
+
+    background-color: white;
+
+    transition: border 0.3s;
+
+    &.Selected {
+        border: 2px solid dodgerblue;
+
+        & .MoveButton {
+            opacity: 1;
+        }
+    }
+}
+
+.MoveButton {
+    z-index: 10;
+    position: absolute;
+
+    width: 20px;
+    height: 20px;
+
+    opacity: 0;
+
+    transition: opacity 0.3s;
+
+    &.up {
+        top: -25px;
+        transform: rotate(-90deg);
+    }
+    &.down {
+        bottom: -25px;
+        transform: rotate(90deg);
+    }
+    &.left {
+        left: -25px;
+        transform: rotate(180deg);
+    }
+    &.right {
+        right: -25px;
+    }
+}
+
+.Board {
+    z-index: 1;
+    position: relative;
+    display: table;
+    border-collapse: collapse;
+}
+
+.BoardRow {
+    z-index: 2;
+    position: relative;
+    display: flex;
+}
+
+.BoardTile {
+    z-index: 2;
+    position: relative;
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    width: 75px;
+    height: 75px;
+
+    outline: 1px dashed grey;
+}
